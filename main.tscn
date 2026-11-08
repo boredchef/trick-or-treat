@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c5pnf7b3rxrbp"]
+
+[ext_resource type="PackedScene" uid="uid://cgsspf4sn5uwc" path="res://scenes/small_dead_tree.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cs4te47he7flf" path="res://scenes/house.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b4jbufbw4sah7" path="res://scenes/grass.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bqygstb51qm0h" path="res://scenes/path_b.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://cro8ahemrho0q" path="res://scenes/path_c.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ddtvc3igo2swf" path="res://scenes/path_d.tscn" id="7_kek77"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+transparency = 1
+albedo_color = Color(1, 0.5921569, 1, 0.40392157)
+albedo_texture_msdf = true
+
+[node name="Main" type="Node3D" unique_id=174422488]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=338195394]
+environment = SubResource("Environment_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=125577078]
+transform = Transform3D(-0.9848077, -0.15038383, 0.086824104, 2.7805946e-08, 0.49999994, 0.86602545, -0.17364827, 0.85286856, -0.49240384, 0, 7.0000005, -0.6)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1435459766]
+visible = false
+material_override = SubResource("StandardMaterial3D_0xm2m")
+
+[node name="wall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2120310943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.099999994)
+use_collision = true
+size = Vector3(6.2000003, 2.8, 0.8)
+
+[node name="door" type="CSGBox3D" parent="CSGCombiner3D/wall" unique_id=1529386404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39999998, -7.450581e-09)
+operation = 2
+size = Vector3(0.90000004, 2, 1)
+
+[node name="window" type="CSGCylinder3D" parent="CSGCombiner3D/wall" unique_id=1051811200]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.6, 0.5, -0.20000002)
+operation = 2
+sides = 12
+
+[node name="wall2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=891444688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -4.2)
+use_collision = true
+size = Vector3(6.2000003, 2.8, 0.8)
+
+[node name="wall3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1549726931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5500002, 0.84999996, -2.2499993)
+use_collision = true
+size = Vector3(0.90000004, 2.9, 4.3)
+
+[node name="wall4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=293587929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5000005, 0.8999999, -2.2999985)
+use_collision = true
+size = Vector3(0.90000004, 2.9, 4.3)
+
+[node name="ProtoController" parent="." unique_id=173545964 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 0, 8.7)
+can_jump = false
+
+[node name="small_dead_tree" parent="." unique_id=128768758 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2208498, -0.1492601, 3.8732026)
+
+[node name="house" parent="." unique_id=34200509 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1308274, -0.49999952, -1.725132)
+
+[node name="grass" parent="." unique_id=1369467808 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3587766, -0.52787495, 0.40163136)
+
+[node name="grass2" parent="." unique_id=807780569 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4175531, -0.49520588, 8.403263)
+
+[node name="path b" parent="." unique_id=1231997711 instance=ExtResource("5_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1000001, -0.5, 3.6000001)
+
+[node name="path c" parent="." unique_id=225535838 instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.5, 5.5)
+
+[node name="path d" parent="." unique_id=1597081390 instance=ExtResource("7_kek77")]
+transform = Transform3D(0.9396926, 0, -0.34202012, 0, 1, 0, 0.34202012, 0, 0.9396926, -1.4, -0.5, 6.3)
+
+[node name="path d2" parent="." unique_id=1804317652 instance=ExtResource("7_kek77")]
+transform = Transform3D(0.9848077, 0, -0.17364818, 0, 1, 0, 0.17364818, 0, 0.9848077, -1.9, -0.5, 8.2)
