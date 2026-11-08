@@ -48,10 +48,15 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var cursor_locked : bool = false
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+
+@onready var camera_3d: Camera3D = $Head/Camera3D
+@onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D
+var current_interactable = null
 
 func _ready() -> void:
 	check_input_mappings()
@@ -62,8 +67,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
+		cursor_locked = true
 	if Input.is_key_pressed(KEY_ESCAPE):
 		release_mouse()
+		cursor_locked = false
+	if Input.is_action_pressed("interact"):
+		activate()
 	
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
@@ -117,6 +126,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+	
+	check_hover_collision()
 
 
 ## Rotate us to look around.
@@ -150,6 +161,32 @@ func capture_mouse():
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
+
+func check_hover_collision():
+	if raycast.is_colliding():
+		var hover_collider = raycast.get_collider()
+		if hover_collider and is_instance_valid(hover_collider) and hover_collider.has_method("interact") and hover_collider.has_method("show_prompt"):
+			if current_interactable != hover_collider:
+				if current_interactable:
+					current_interactable.hide_prompt()
+				current_interactable = hover_collider
+				current_interactable.show_prompt()
+		else:
+			hide_current_prompt()
+	else:
+		hide_current_prompt()
+
+func hide_current_prompt():
+	if current_interactable:
+		current_interactable.hide_prompt()
+		current_interactable = null
+
+func activate():
+	var hit = raycast.get_collider()
+	if cursor_locked and raycast.is_colliding():
+		if hit and hit.has_method("interact"):
+			hit.interact()
+			
 
 
 ## Checks if some Input Actions haven't been created.
