@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cbr7wifb4gchs"]
+
+[ext_resource type="PackedScene" uid="uid://dje3c4rd57itv" path="res://models/benches/bench.gltf" id="1_3vt41"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ed6ib"]
+points = PackedVector3Array(-1.0158731, 0.30151275, -0.39079535, -0.9262371, 0.5, -0.35578817, 1.0158731, 0.30151275, -0.39079535, -0.926167, 0, 0.31956384, 0.9259985, 4.6195517e-05, -0.33749568, -0.94436663, 0.47530133, 0.3747734, 0.926167, 0, 0.31956384, -0.9259985, 4.6195517e-05, -0.33749568, 0.9262371, 0.5, -0.35578817, 0.9262371, 0.5, 0.3387282, 1.0158731, 0.26981643, 0.37093234, -1.0158731, 0.26981643, 0.37093234, -0.9262371, 0.5, 0.3387282, 0.94436663, 0.47530133, 0.3747734, 1.0158731, 0.26981643, -0.35902756, -1.0158731, 0.26981643, -0.35902756)
+
+[node name="bench" type="StaticBody3D" unique_id=466829212]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1320813382]
+shape = SubResource("ConvexPolygonShape3D_ed6ib")
+
+[node name="bench2" parent="." unique_id=778941749 instance=ExtResource("1_3vt41")]
+
+[editable path="bench2"]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dwc5ptbw2fwqk"
-path="res://.godot/imported/tree_dead_small.gltf-39611aac28df33da31da1f7833068a40.scn"
+uid="uid://bysf4edyxy5du"
+path="res://.godot/imported/fence_straight.gltf-4ed197c2600fd6dfcf6ae3ccd62e4872.scn"
 
 [deps]
 
-source_file="res://models/dead_tree_small/tree_dead_small.gltf"
-dest_files=["res://.godot/imported/tree_dead_small.gltf-39611aac28df33da31da1f7833068a40.scn"]
+source_file="res://models/fences/fence_straight.gltf"
+dest_files=["res://.godot/imported/fence_straight.gltf-4ed197c2600fd6dfcf6ae3ccd62e4872.scn"]
 
 [params]
 
@@ -39,15 +39,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"HalloweenBits": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/dead_tree_small/wood.tres",
-"use_external/path": "uid://bghvfvc8e4lh1"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

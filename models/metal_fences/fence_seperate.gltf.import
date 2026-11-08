@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c1s6vx0sbnev0"
-path="res://.godot/imported/pillar.gltf-09b3f63ca24d2a2a5a8e2a6bdcc8dc1d.scn"
+uid="uid://did0xx4q73gm8"
+path="res://.godot/imported/fence_seperate.gltf-015f1f018d5ac5a3a73117001e18acbd.scn"
 
 [deps]
 
-source_file="res://models/pillar/pillar.gltf"
-dest_files=["res://.godot/imported/pillar.gltf-09b3f63ca24d2a2a5a8e2a6bdcc8dc1d.scn"]
+source_file="res://models/metal_fences/fence_seperate.gltf"
+dest_files=["res://.godot/imported/fence_seperate.gltf-015f1f018d5ac5a3a73117001e18acbd.scn"]
 
 [params]
 
@@ -39,15 +39,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"HalloweenBits": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://models/pillar/pillar.tres",
-"use_external/path": "uid://briyn5kjctk4h"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

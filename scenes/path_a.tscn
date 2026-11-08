@@ -11,3 +11,5 @@ points = PackedVector3Array(-0.55862534, 0, -0.9384918, -0.8930243, 0, -0.826196
 shape = SubResource("ConvexPolygonShape3D_neco7")
 
 [node name="path_A2" parent="." unique_id=1923253505 instance=ExtResource("1_0whx4")]
+
+[editable path="path_A2"]
