@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cr66d3vwprglh"]
+
+[node name="dialogue" type="CanvasLayer" unique_id=80872787]
+
+[node name="Panel" type="Panel" parent="." unique_id=82863369]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -122.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="trick button" type="Button" parent="Panel" unique_id=1569423096]
+layout_mode = 0
+offset_left = 933.0
+offset_top = 20.0
+offset_right = 1072.0
+offset_bottom = 58.0
+text = "trick"
+
+[node name="treat button" type="Button" parent="Panel" unique_id=575988483]
+layout_mode = 0
+offset_left = 933.0
+offset_top = 61.0
+offset_right = 1072.0
+offset_bottom = 99.0
+text = "treat
+"
+
+[node name="Label" type="Label" parent="Panel" unique_id=793870983]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -105.0
+offset_right = -261.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "hi!!! would you like a trick or a treat?"
+horizontal_alignment = 1

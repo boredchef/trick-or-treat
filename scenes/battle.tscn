@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://bjelglscto7o7"]
+
+[ext_resource type="Script" uid="uid://bo1w4v8sl4rvj" path="res://scripts/battle.gd" id="1_p1qf1"]
+[ext_resource type="Resource" uid="uid://iqompr37b88l" path="res://resources/reeses.tres" id="2_p1qf1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8wryp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obyg3"]
+bg_color = Color(0.9418325, 0.29952726, 0.34848148, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy5x0"]
+bg_color = Color(0.2955426, 0.9447799, 0.43462682, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfbbk"]
+bg_color = Color(0, 0, 0, 0.5294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvvy5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp587"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnuwd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Battle" type="Control" unique_id=1480042873]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1093.0
+offset_bottom = 644.0
+script = ExtResource("1_p1qf1")
+enemy = ExtResource("2_p1qf1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1829851514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 60.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_8wryp")
+
+[node name="CandyContainer" type="VBoxContainer" parent="." unique_id=1674998272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -191.0
+offset_right = 175.5
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CandyContainer" unique_id=545710136]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_obyg3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iy5x0")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CandyContainer/ProgressBar" unique_id=1908426351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "HP: 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Candy" type="TextureRect" parent="CandyContainer" unique_id=1484246038]
+layout_mode = 2
+size_flags_vertical = 10
+stretch_mode = 3
+
+[node name="PlayerPanel" type="Panel" parent="." unique_id=964026993]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0530001
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 1.0709229
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfbbk")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerPanel" unique_id=972059484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="PlayerData" type="HBoxContainer" parent="PlayerPanel/MarginContainer" unique_id=1957761428]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerPanel/MarginContainer/PlayerData" unique_id=44349701]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "PLAYER"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/MarginContainer/PlayerData" unique_id=490448686]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_obyg3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iy5x0")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="PlayerPanel/MarginContainer/PlayerData/ProgressBar" unique_id=1843290236]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "HP: 50/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionsPanel" type="Panel" parent="." unique_id=1914713879]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -546.5
+offset_right = 605.5
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfbbk")
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionsPanel" unique_id=583094520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Actions" type="HBoxContainer" parent="ActionsPanel/MarginContainer" unique_id=1596212020]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Attack" type="Button" parent="ActionsPanel/MarginContainer/Actions" unique_id=938658952]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvvy5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tp587")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tp587")
+text = "ATTACK"
+
+[node name="Defend" type="Button" parent="ActionsPanel/MarginContainer/Actions" unique_id=440446775]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvvy5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tp587")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tp587")
+text = "DEFEND"
+
+[node name="Run" type="Button" parent="ActionsPanel/MarginContainer/Actions" unique_id=826559522]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_pvvy5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tp587")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tp587")
+text = "RUN"
+
+[node name="Textbox" type="Panel" parent="." unique_id=1939048167]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 51.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rnuwd")
+
+[node name="Label" type="Label" parent="Textbox" unique_id=655944060]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "a wild reeses peanut butter comes outta no where"
+
+[node name="Label2" type="Label" parent="Textbox" unique_id=210826437]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -24.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+text = ">"
+
+[connection signal="pressed" from="ActionsPanel/MarginContainer/Actions/Run" to="." method="_on_run_pressed"]

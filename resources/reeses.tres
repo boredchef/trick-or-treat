@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://iqompr37b88l"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_jhfdc"]
+[ext_resource type="Texture2D" uid="uid://bjqfopt6ibqgu" path="res://textures/reeses.png" id="2_jhfdc"]
+
+[resource]
+script = ExtResource("1_jhfdc")
+name = "reeses peanut butter cup"
+texture = ExtResource("2_jhfdc")
+health = 45
+damage = 15

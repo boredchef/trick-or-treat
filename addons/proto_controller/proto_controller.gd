@@ -56,6 +56,8 @@ var cursor_locked : bool = false
 
 @onready var camera_3d: Camera3D = $Head/Camera3D
 @onready var raycast: RayCast3D = $Head/Camera3D/RayCast3D
+@export var dialogue: CanvasLayer
+
 var current_interactable = null
 
 func _ready() -> void:
@@ -186,7 +188,9 @@ func activate():
 	if cursor_locked and raycast.is_colliding():
 		if hit and hit.has_method("interact"):
 			hit.interact()
-			
+			can_move = false
+			dialogue.visible = true
+			release_mouse()
 
 
 ## Checks if some Input Actions haven't been created.
