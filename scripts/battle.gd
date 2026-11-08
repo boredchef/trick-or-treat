@@ -4,11 +4,18 @@ signal textbox_closed
 
 @export var enemy : Resource = null
 
+var current_player_health = 0
+var current_enemy_health = 0
+var is_defending = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_health($CandyContainer/ProgressBar, enemy.health, enemy.health) 
 	set_health($PlayerPanel/MarginContainer/PlayerData/ProgressBar, State.current_health, State.max_health) 
 	$CandyContainer/Candy.texture = enemy.texture
+	
+	current_player_health = State.current_health
+	current_enemy_health = enemy.health
 	
 	$Textbox.hide()
 	$ActionsPanel.hide()
@@ -29,16 +36,70 @@ func _input(event):
 		emit_signal("textbox_closed")
 
 func display_text(text):
+	$ActionsPanel.hide()
 	$Textbox.show()
 	$Textbox/Label.text = text
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func enemy_turn():
+	display_text("%s uses spooky attack" %  enemy.name)
+	await textbox_closed
+	
+	if is_defending:
+		is_defending = false
+		$AnimationPlayer.play("mini_shake")
+		await $AnimationPlayer.animation_finished
+		display_text("you defended against %s successfully" % enemy.name)
+		await textbox_closed
+	else:
+		current_player_health = max(0, current_player_health - enemy.damage)
+		set_health($PlayerPanel/MarginContainer/PlayerData/ProgressBar, current_player_health, State.max_health)
+		
+		$AnimationPlayer.play("shake")
+		await $AnimationPlayer.animation_finished
+	
+		display_text("%s dealth %d damage" % [enemy.name, enemy.damage])
+		await textbox_closed
+	$ActionsPanel.show()
 
 func _on_run_pressed() -> void:
 	display_text("got away, no candy for you :(")
 	await textbox_closed
 	await get_tree().create_timer(.5).timeout
 	get_tree().quit()
+
+func _on_attack_pressed() -> void:
+	display_text("you try and reach for the candy!")
+	await textbox_closed
+	
+	current_enemy_health = max(0, current_enemy_health - State.damage)
+	set_health($CandyContainer/ProgressBar, current_enemy_health, enemy.health)
+	
+	$AnimationPlayer.play("enemy_damage")
+	await $AnimationPlayer.animation_finished
+	
+	display_text("you dealt %d damage" % State.damage)
+	await textbox_closed
+	
+	if current_enemy_health == 0:
+		display_text("%s is at last yours to eat :D" % enemy.name)
+		await textbox_closed
+		
+		$AnimationPlayer.play("enemy_die")
+		await $AnimationPlayer.animation_finished
+		
+		await get_tree().create_timer(.25).timeout
+		get_tree().quit()
+		
+	enemy_turn()
+	
+func _on_defend_pressed() -> void:
+	is_defending = true
+	
+	display_text("you take a little break!")
+	await textbox_closed
+	
+	await get_tree().create_timer(.25).timeout
+	
+	enemy_turn()
+	
+	
