@@ -1,6 +1,7 @@
 extends Control
 
 signal textbox_closed
+signal battle_won
 
 @export var enemy : Resource = null
 
@@ -10,12 +11,12 @@ var is_defending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_player_health = State.current_health
+	current_enemy_health = enemy.health
+	
 	set_health($CandyContainer/ProgressBar, enemy.health, enemy.health) 
 	set_health($PlayerPanel/MarginContainer/PlayerData/ProgressBar, State.current_health, State.max_health) 
 	$CandyContainer/Candy.texture = enemy.texture
-	
-	current_player_health = State.current_health
-	current_enemy_health = enemy.health
 	
 	$Textbox.hide()
 	$ActionsPanel.hide()
@@ -33,7 +34,7 @@ func set_health(progress_bar, health, max_health):
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and $Textbox.visible:
 		$Textbox.hide()
-		emit_signal("textbox_closed")
+		textbox_closed.emit()
 
 func display_text(text):
 	$ActionsPanel.hide()
@@ -65,8 +66,9 @@ func _on_run_pressed() -> void:
 	display_text("got away, no candy for you :(")
 	await textbox_closed
 	await get_tree().create_timer(.5).timeout
-	get_tree().quit()
-
+	hide()
+	battle_won.emit()
+	
 func _on_attack_pressed() -> void:
 	display_text("you try and reach for the candy!")
 	await textbox_closed
@@ -88,7 +90,9 @@ func _on_attack_pressed() -> void:
 		await $AnimationPlayer.animation_finished
 		
 		await get_tree().create_timer(.25).timeout
-		get_tree().quit()
+		hide()
+		battle_won.emit()
+		return
 		
 	enemy_turn()
 	

@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://cr66d3vwprglh"]
 
-[node name="dialogue" type="CanvasLayer" unique_id=80872787]
+[ext_resource type="Script" uid="uid://dckwkjg70c4pw" path="res://scenes/dialogue.gd" id="1_jwyou"]
+
+[node name="dialogue" type="CanvasLayer" unique_id=80872787 node_paths=PackedStringArray("label", "treat_button", "trick_button")]
+script = ExtResource("1_jwyou")
+label = NodePath("Panel/Label")
+treat_button = NodePath("Panel/treat button")
+trick_button = NodePath("Panel/trick button")
 
 [node name="Panel" type="Panel" parent="." unique_id=82863369]
 anchors_preset = 12
@@ -41,5 +47,8 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
-text = "hi!!! would you like a trick or a treat?"
+text = "oh hi little dude!"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/trick button" to="." method="_on_trick_button_pressed"]
+[connection signal="pressed" from="Panel/treat button" to="." method="_on_treat_button_pressed"]

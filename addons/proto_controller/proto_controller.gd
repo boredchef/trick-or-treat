@@ -67,7 +67,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_move:
 		capture_mouse()
 		cursor_locked = true
 	if Input.is_key_pressed(KEY_ESCAPE):
@@ -187,10 +187,17 @@ func activate():
 	var hit = raycast.get_collider()
 	if cursor_locked and raycast.is_colliding():
 		if hit and hit.has_method("interact"):
-			hit.interact()
-			can_move = false
-			dialogue.visible = true
-			release_mouse()
+			var started_interaction = hit.interact()
+			if started_interaction:
+				can_move = false
+				release_mouse()
+				cursor_locked = false
+			
+func resume_overworld() -> void:
+	can_move = true
+	capture_mouse()
+	cursor_locked = true
+	
 
 
 ## Checks if some Input Actions haven't been created.
