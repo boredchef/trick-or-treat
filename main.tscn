@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c30o2a0mxpbub" path="res://textures/dirt/Dirt_01_metallic.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://dyarwd7lr44d6" path="res://textures/dirt/Dirt_01_normal.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dksk215jixysf" path="res://textures/dirt/Dirt_01_roughness.png" id="6_efxa6"]
+[ext_resource type="Resource" uid="uid://iqompr37b88l" path="res://resources/reeses.tres" id="9_074og"]
 [ext_resource type="PackedScene" uid="uid://crouvg603fnej" path="res://scenes/path_a.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://deegacc0yaf0r" path="res://scenes/large_tree.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://uskn6y4grpuy" path="res://scenes/nice_tree.tscn" id="11_dg77c"]
@@ -72,40 +73,44 @@ dialogue = NodePath("../dialogue")
 
 [node name="houses" type="Node3D" parent="." unique_id=578928586]
 
-[node name="house" parent="houses" unique_id=34200509 instance=ExtResource("3_h2yge")]
+[node name="house" parent="houses" unique_id=34200509 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9, 0, -10.3)
+enemy = ExtResource("9_074og")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house6" parent="houses" unique_id=13312395 instance=ExtResource("3_h2yge")]
+[node name="house6" parent="houses" unique_id=13312395 node_paths=PackedStringArray("dialogue") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7, 0, -10.3)
+dialogue = NodePath("../../dialogue")
 
-[node name="house2" parent="houses" unique_id=743982217 instance=ExtResource("3_h2yge")]
+[node name="house2" parent="houses" unique_id=743982217 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.799999, 0, -10.3)
 
-[node name="house3" parent="houses" unique_id=1150884008 instance=ExtResource("3_h2yge")]
+[node name="house3" parent="houses" unique_id=1150884008 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.300001, 0, -10.3)
 
-[node name="house4" parent="houses" unique_id=37037396 instance=ExtResource("3_h2yge")]
+[node name="house4" parent="houses" unique_id=37037396 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.400002, 0, -10.3)
 
-[node name="house5" parent="houses" unique_id=2072675048 instance=ExtResource("3_h2yge")]
+[node name="house5" parent="houses" unique_id=2072675048 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.500002, 0, -10.3)
 
-[node name="house7" parent="houses" unique_id=1382739746 instance=ExtResource("3_h2yge")]
+[node name="house7" parent="houses" unique_id=1382739746 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 30.7, -0.5, 10.300003)
 
-[node name="house8" parent="houses" unique_id=66682441 instance=ExtResource("3_h2yge")]
+[node name="house8" parent="houses" unique_id=66682441 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.7999983, -0.5, 10.300001)
 
-[node name="house9" parent="houses" unique_id=1650030463 instance=ExtResource("3_h2yge")]
+[node name="house9" parent="houses" unique_id=1650030463 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.300002, -0.5, 10.3)
 
-[node name="house10" parent="houses" unique_id=720668408 instance=ExtResource("3_h2yge")]
+[node name="house10" parent="houses" unique_id=720668408 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16.400002, -0.5, 10.299998)
 
-[node name="house11" parent="houses" unique_id=892434390 instance=ExtResource("3_h2yge")]
+[node name="house11" parent="houses" unique_id=892434390 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -28.500002, -0.5, 10.299997)
 
-[node name="house12" parent="houses" unique_id=17137566 instance=ExtResource("3_h2yge")]
+[node name="house12" parent="houses" unique_id=17137566 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 19.9, -0.5, 10.300002)
 
 [node name="path" type="Node3D" parent="." unique_id=241069739]
@@ -1006,6 +1011,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.
 
 [node name="dialogue" parent="." unique_id=80872787 groups=["dialogue"] instance=ExtResource("16_2cqfq")]
 visible = false
+dialogue = Array[String](["hey bud", "choose wisely", "or else..."])
 
 [node name="Battle" parent="." unique_id=1480042873 groups=["battle"] instance=ExtResource("17_yaehf")]
 visible = false

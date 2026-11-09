@@ -1,22 +1,18 @@
 extends StaticBody3D
 
+@export var enemy: Resource = null
+
 @onready var prompt : Label3D = $Label3D
-@onready var dialogue: CanvasLayer = get_tree().get_first_node_in_group("dialogue")
-@onready var battle: Control = get_tree().get_first_node_in_group("battle")
-
-const REESES = preload("uid://iqompr37b88l")
-@export var enemy: Resource = REESES 
-
+@export var dialogue: CanvasLayer = null
+@export var battle: Control = null
 @onready var player: CharacterBody3D = $"../../ProtoController"
 
-var has_been_visited = false
+var has_been_visited: bool = false
 
 func _ready() -> void:
-	if battle != null: 
-		battle.battle_won.connect(_on_battle_won)
-		battle.battle_left.connect(_on_battle_left)
-	else: 
+	if battle == null:  
 		push_error("battle node is missing on "+name+"! pls assign one")
+
 
 func _on_battle_left() -> void:
 	player.resume_overworld()
@@ -27,8 +23,10 @@ func _on_battle_won() -> void:
 func interact() -> bool:
 	if has_been_visited:
 		return false
+		
 	has_been_visited = true
 	prompt.text = "visited"
+	
 	if dialogue != null:
 		dialogue.open_dialogue()
 		if not dialogue.trick.is_connected(_on_dialogue_finished):
@@ -39,15 +37,24 @@ func interact() -> bool:
 	return false
 
 func _on_dialogue_finished():
-	dialogue.visible = false
+	if dialogue != null:
+		dialogue.visible = false
 	
 	if battle != null and enemy != null:
 		battle.enemy = enemy
 		battle.visible = true
+		
+		if not battle.battle_won.is_connected(_on_battle_won):
+			battle.battle_won.connect(_on_battle_won, CONNECT_ONE_SHOT)
+		if not battle.battle_left.is_connected(_on_battle_left):
+			battle.battle_left.connect(_on_battle_left, CONNECT_ONE_SHOT)
 		if battle.has_method("start_battle"):
 			battle.start_battle()
 	else:
-		print(name, " has no enemy. finishing interaction.")
+		print(name, " has no enemy. giving friendly treat.")
+		State.candy += 1
+		State.candy_collected.append("friendly treat")
+		
 		if player != null:
 			player.resume_overworld()
 	

@@ -104,7 +104,7 @@ func _on_attack_pressed() -> void:
 		
 		print(State.candy)
 		print(State.candy_collected)
-		
+				
 		battle_won.emit()
 		return
 		
