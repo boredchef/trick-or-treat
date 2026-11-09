@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://iqompr37b88l" path="res://resources/reeses.tres" id="9_074og"]
 [ext_resource type="PackedScene" uid="uid://crouvg603fnej" path="res://scenes/path_a.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://deegacc0yaf0r" path="res://scenes/large_tree.tscn" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://cqtadiydk1a2k" path="res://scenes/pumpkin.tscn" id="11_82xsv"]
 [ext_resource type="PackedScene" uid="uid://uskn6y4grpuy" path="res://scenes/nice_tree.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cbr7wifb4gchs" path="res://scenes/bench.tscn" id="12_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://dyahjyxscm7w0" path="res://scenes/decorated_bench.tscn" id="13_w48qg"]
@@ -19,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cbpey2yvl1qe7" path="res://scenes/fence_corner.tscn" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cr66d3vwprglh" path="res://scenes/dialogue.tscn" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bjelglscto7o7" path="res://scenes/battle.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cgsspf4sn5uwc" path="res://scenes/small_dead_tree.tscn" id="21_getpj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.4769894, 0.6940815, 0.9788601, 1)
@@ -63,11 +65,11 @@ size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_8wryp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=125577078]
-transform = Transform3D(-0.94572955, -0.20224476, -0.25434738, -0.2810145, 0.11597018, 0.95267093, -0.16317597, 0.9724444, -0.16651015, 0, 7.0000005, -0.6)
+transform = Transform3D(0.98527324, 0.16935919, 0.023538535, 0.05108994, -0.16021706, -0.9857587, -0.16317603, 0.9724443, -0.16651016, 0, 7.0000005, -0.6)
 shadow_enabled = true
 
 [node name="ProtoController" parent="." unique_id=173545964 node_paths=PackedStringArray("dialogue") instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.800001, 5, 1.5)
+transform = Transform3D(-0.059277736, 0, -0.99824154, 0, 1, 0, 0.99824154, 0, -0.059277736, -38.100002, 0.0048582554, 1.5)
 can_jump = false
 dialogue = NodePath("../dialogue")
 
@@ -112,6 +114,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -28.
 
 [node name="house12" parent="houses" unique_id=17137566 groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 19.9, -0.5, 10.300002)
+
+[node name="pumpkin" parent="houses" unique_id=1041166586 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9, 0, -1)
 
 [node name="path" type="Node3D" parent="." unique_id=241069739]
 
@@ -1015,3 +1020,39 @@ dialogue = Array[String](["hey bud", "choose wisely", "or else..."])
 
 [node name="Battle" parent="." unique_id=1480042873 groups=["battle"] instance=ExtResource("17_yaehf")]
 visible = false
+
+[node name="small_dead_tree" parent="." unique_id=128768758 instance=ExtResource("21_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.892174, 0.29665685, 2.5909672)
+
+[node name="decorated bench" parent="." unique_id=377344818 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2679703, 0.00012207031, 2.5909672)
+
+[node name="large tree" parent="." unique_id=2047750032 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.014916, 0.3001229, -6.273493)
+
+[node name="nice tree" parent="." unique_id=499574277 instance=ExtResource("11_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.300884, 0.30012208, 5.963318)
+
+[node name="pumpkin" parent="." unique_id=1792910030 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.426709, 0.0035050418, 3.1690845)
+
+[node name="pumpkin2" parent="." unique_id=1332309796 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5960894, 0.0033829715, -3.1902008)
+
+[node name="pumpkin3" parent="." unique_id=646172817 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.723315, 0.0035050418, 2.5909672)
+
+[node name="pumpkin4" parent="." unique_id=932283408 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.587376, 0.0033829715, -2.2266731)
+
+[node name="decorated bench2" parent="." unique_id=1794168 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.52138, -0.00012207031, 2.6873188)
+
+[node name="large tree2" parent="." unique_id=626304943 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.43516, 0.30000082, 3.5544949)
+
+[node name="small_dead_tree2" parent="." unique_id=566912525 instance=ExtResource("21_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.421077, 0.29653478, -4.635495)
+
+[node name="small_dead_tree3" parent="." unique_id=1244645854 instance=ExtResource("21_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7786683, 0.29665685, -6.273493)
