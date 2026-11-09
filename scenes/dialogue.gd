@@ -7,11 +7,17 @@ extends CanvasLayer
 signal treat
 signal trick
 
+func open_dialogue() -> void:
+	visible = true
+	treat_button.visible = true
+	trick_button.visible = true
+	label.text = "hi!!! wat do u want"
+
 func _on_trick_button_pressed() -> void:
 	print("well, okay..")
 	treat_button.visible = false
 	trick_button.visible = false
-	label.text = "i don't really have any treats"
+	label.text = "i don't really have any tricks"
 	
 	await get_tree().create_timer(1.5).timeout 
 	

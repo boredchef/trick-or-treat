@@ -2,6 +2,7 @@ extends Control
 
 signal textbox_closed
 signal battle_won
+signal battle_left
 
 @export var enemy : Resource = null
 
@@ -11,12 +12,17 @@ var is_defending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Textbox.hide()
+	$ActionsPanel.hide()
+	
+func start_battle() -> void:
 	current_player_health = State.current_health
 	current_enemy_health = enemy.health
 	
 	set_health($CandyContainer/ProgressBar, enemy.health, enemy.health) 
 	set_health($PlayerPanel/MarginContainer/PlayerData/ProgressBar, State.current_health, State.max_health) 
 	$CandyContainer/Candy.texture = enemy.texture
+	$CandyContainer/Candy.modulate = Color(1,1,1,1)
 	
 	$Textbox.hide()
 	$ActionsPanel.hide()
@@ -67,7 +73,8 @@ func _on_run_pressed() -> void:
 	await textbox_closed
 	await get_tree().create_timer(.5).timeout
 	hide()
-	battle_won.emit()
+	battle_left.emit()
+	
 	
 func _on_attack_pressed() -> void:
 	display_text("you try and reach for the candy!")
@@ -91,6 +98,13 @@ func _on_attack_pressed() -> void:
 		
 		await get_tree().create_timer(.25).timeout
 		hide()
+		
+		State.candy += 1
+		State.candy_collected.append(enemy.name)
+		
+		print(State.candy)
+		print(State.candy_collected)
+		
 		battle_won.emit()
 		return
 		
