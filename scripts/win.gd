@@ -13,7 +13,7 @@ func open_dialogue() -> void:
 	show()
 	label.visible = true
 	
-	dialogue.append("you collected this many: "+State.candy)
+	dialogue.append("you collected this many: "+str(State.candy))
 		
 	if dialogue != null:
 		if dialogue.size() > 0:
