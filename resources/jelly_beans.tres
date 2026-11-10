@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://dc3lnmhjhx1jc"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_aklhn"]
+[ext_resource type="Texture2D" uid="uid://bgq345wbl4a7i" path="res://textures/candy/jelly_beans.png" id="2_aklhn"]
+
+[resource]
+script = ExtResource("1_aklhn")
+name = "jelly beans"
+texture = ExtResource("2_aklhn")
+damage = 10

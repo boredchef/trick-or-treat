@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://iqompr37b88l"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_qwh36"]
+[ext_resource type="Texture2D" uid="uid://c4qfd1hlfqino" path="res://textures/candy/peanut_butter_cup.png" id="2_f566o"]
+
+[resource]
+script = ExtResource("1_qwh36")
+name = "peanut butter cup"
+texture = ExtResource("2_f566o")
+health = 45
+damage = 15

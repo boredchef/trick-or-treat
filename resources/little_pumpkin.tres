@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://bfl5lmjli6kys"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_55vrj"]
+[ext_resource type="Texture2D" uid="uid://dl38vn58xhrq2" path="res://textures/candy/little_pumpkin.png" id="2_55vrj"]
+
+[resource]
+script = ExtResource("1_55vrj")
+name = "little pumpkin"
+texture = ExtResource("2_55vrj")
+health = 20

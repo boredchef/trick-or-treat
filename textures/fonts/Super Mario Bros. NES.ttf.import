@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://x22a4b8ir53m"
-path="res://.godot/imported/augiepixel.ttf-379b796353dc816445fe6e47c41ea766.fontdata"
+uid="uid://btc15to2vt0sf"
+path="res://.godot/imported/Super Mario Bros. NES.ttf-99fa71b289226591099b289da6e04f29.fontdata"
 
 [deps]
 
-source_file="res://textures/augiepixel.ttf"
-dest_files=["res://.godot/imported/augiepixel.ttf-379b796353dc816445fe6e47c41ea766.fontdata"]
+source_file="res://textures/fonts/Super Mario Bros. NES.ttf"
+dest_files=["res://.godot/imported/Super Mario Bros. NES.ttf-99fa71b289226591099b289da6e04f29.fontdata"]
 
 [params]
 

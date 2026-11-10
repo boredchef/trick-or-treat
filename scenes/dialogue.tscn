@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cr66d3vwprglh"]
 
 [ext_resource type="Script" uid="uid://dckwkjg70c4pw" path="res://scripts/dialogue.gd" id="1_jwyou"]
+[ext_resource type="FontFile" uid="uid://btc15to2vt0sf" path="res://textures/fonts/Super Mario Bros. NES.ttf" id="2_bfpow"]
+[ext_resource type="FontFile" uid="uid://bgkll3ft2u0nr" path="res://textures/fonts/Tricat.ttf" id="3_fyky8"]
 
 [node name="dialogue" type="CanvasLayer" unique_id=80872787 node_paths=PackedStringArray("label", "treat_button", "trick_button")]
 script = ExtResource("1_jwyou")
@@ -23,6 +25,7 @@ offset_left = 933.0
 offset_top = 20.0
 offset_right = 1072.0
 offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("2_bfpow")
 text = "trick"
 
 [node name="treat button" type="Button" parent="Panel" unique_id=575988483]
@@ -31,6 +34,7 @@ offset_left = 933.0
 offset_top = 61.0
 offset_right = 1072.0
 offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("2_bfpow")
 text = "treat
 "
 
@@ -46,6 +50,7 @@ offset_right = -261.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_fyky8")
 theme_override_font_sizes/font_size = 32
 text = "oh hi little dude!"
 horizontal_alignment = 1

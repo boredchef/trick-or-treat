@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://gjk65ibvak8i"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_iq28m"]
+[ext_resource type="Texture2D" uid="uid://djyhsglt7fbmh" path="res://textures/candy/corn.png" id="2_iq28m"]
+
+[resource]
+script = ExtResource("1_iq28m")
+name = "candy corn"
+texture = ExtResource("2_iq28m")
+health = 35

@@ -9,18 +9,27 @@
 [ext_resource type="Texture2D" uid="uid://c30o2a0mxpbub" path="res://textures/dirt/Dirt_01_metallic.png" id="4_kek77"]
 [ext_resource type="Texture2D" uid="uid://dyarwd7lr44d6" path="res://textures/dirt/Dirt_01_normal.png" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://dksk215jixysf" path="res://textures/dirt/Dirt_01_roughness.png" id="6_efxa6"]
-[ext_resource type="Resource" uid="uid://iqompr37b88l" path="res://resources/reeses.tres" id="9_074og"]
+[ext_resource type="Resource" uid="uid://iqompr37b88l" path="res://resources/peanut_butter_cup.tres" id="9_074og"]
 [ext_resource type="PackedScene" uid="uid://crouvg603fnej" path="res://scenes/path_a.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://deegacc0yaf0r" path="res://scenes/large_tree.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cqtadiydk1a2k" path="res://scenes/pumpkin.tscn" id="11_82xsv"]
 [ext_resource type="PackedScene" uid="uid://uskn6y4grpuy" path="res://scenes/nice_tree.tscn" id="11_dg77c"]
+[ext_resource type="Resource" uid="uid://cglni7a6dirma" path="res://resources/candy.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://bfl5lmjli6kys" path="res://resources/little_pumpkin.tres" id="12_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://cbr7wifb4gchs" path="res://scenes/bench.tscn" id="12_ycdy4"]
+[ext_resource type="Resource" uid="uid://mlv5jwofiu1e" path="res://resources/gummy_worms.tres" id="13_kq58d"]
 [ext_resource type="PackedScene" uid="uid://dyahjyxscm7w0" path="res://scenes/decorated_bench.tscn" id="13_w48qg"]
+[ext_resource type="Resource" uid="uid://dc3lnmhjhx1jc" path="res://resources/jelly_beans.tres" id="14_seu75"]
 [ext_resource type="PackedScene" uid="uid://cxa73xf2eb36f" path="res://scenes/fence.tscn" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cbpey2yvl1qe7" path="res://scenes/fence_corner.tscn" id="15_2cqfq"]
+[ext_resource type="Resource" uid="uid://gjk65ibvak8i" path="res://resources/candy_corn.tres" id="15_htxhm"]
 [ext_resource type="PackedScene" uid="uid://cr66d3vwprglh" path="res://scenes/dialogue.tscn" id="16_2cqfq"]
+[ext_resource type="Resource" uid="uid://c3ug72a703nbf" path="res://resources/choco_bar.tres" id="16_jq2sk"]
+[ext_resource type="Resource" uid="uid://c7kdbdoubxj5l" path="res://resources/lollipop.tres" id="17_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bjelglscto7o7" path="res://scenes/battle.tscn" id="17_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cgsspf4sn5uwc" path="res://scenes/small_dead_tree.tscn" id="21_getpj"]
+[ext_resource type="Script" uid="uid://b7xll1tumbxn1" path="res://scripts/win.gd" id="29_seu75"]
+[ext_resource type="FontFile" uid="uid://bgkll3ft2u0nr" path="res://textures/fonts/Tricat.ttf" id="31_jq2sk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.4769894, 0.6940815, 0.9788601, 1)
@@ -67,6 +76,7 @@ material = SubResource("StandardMaterial3D_8wryp")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=125577078]
 transform = Transform3D(0.98527324, 0.16935919, 0.023538535, 0.05108994, -0.16021706, -0.9857587, -0.16317603, 0.9724443, -0.16651016, 0, 7.0000005, -0.6)
 shadow_enabled = true
+sky_mode = 2
 
 [node name="ProtoController" parent="." unique_id=173545964 node_paths=PackedStringArray("dialogue") instance=ExtResource("2_h2yge")]
 transform = Transform3D(-0.059277736, 0, -0.99824154, 0, 1, 0, 0.99824154, 0, -0.059277736, -38.100002, 0.0048582554, 1.5)
@@ -81,42 +91,71 @@ enemy = ExtResource("9_074og")
 dialogue = NodePath("../../dialogue")
 battle = NodePath("../../Battle")
 
-[node name="house6" parent="houses" unique_id=13312395 node_paths=PackedStringArray("dialogue") groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house6" parent="houses" unique_id=13312395 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7, 0, -10.3)
+enemy = ExtResource("11_xuqvo")
 dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house2" parent="houses" unique_id=743982217 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house2" parent="houses" unique_id=743982217 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.799999, 0, -10.3)
+enemy = ExtResource("11_xuqvo")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house3" parent="houses" unique_id=1150884008 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house3" parent="houses" unique_id=1150884008 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.300001, 0, -10.3)
+enemy = ExtResource("12_qsp4k")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house4" parent="houses" unique_id=37037396 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house4" parent="houses" unique_id=37037396 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.400002, 0, -10.3)
+enemy = ExtResource("13_kq58d")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house5" parent="houses" unique_id=2072675048 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house5" parent="houses" unique_id=2072675048 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.500002, 0, -10.3)
+enemy = ExtResource("14_seu75")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house7" parent="houses" unique_id=1382739746 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house7" parent="houses" unique_id=1382739746 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 30.7, -0.5, 10.300003)
+enemy = ExtResource("11_xuqvo")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house8" parent="houses" unique_id=66682441 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house8" parent="houses" unique_id=66682441 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.7999983, -0.5, 10.300001)
+enemy = ExtResource("15_htxhm")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house9" parent="houses" unique_id=1650030463 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house9" parent="houses" unique_id=1650030463 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4.300002, -0.5, 10.3)
+enemy = ExtResource("16_jq2sk")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house10" parent="houses" unique_id=720668408 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house10" parent="houses" unique_id=720668408 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16.400002, -0.5, 10.299998)
+enemy = ExtResource("14_seu75")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house11" parent="houses" unique_id=892434390 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house11" parent="houses" unique_id=892434390 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -28.500002, -0.5, 10.299997)
+enemy = ExtResource("17_4k2k6")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
-[node name="house12" parent="houses" unique_id=17137566 groups=["houses"] instance=ExtResource("3_h2yge")]
+[node name="house12" parent="houses" unique_id=17137566 node_paths=PackedStringArray("dialogue", "battle") groups=["houses"] instance=ExtResource("3_h2yge")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 19.9, -0.5, 10.300002)
-
-[node name="pumpkin" parent="houses" unique_id=1041166586 instance=ExtResource("11_82xsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9, 0, -1)
+enemy = ExtResource("16_jq2sk")
+dialogue = NodePath("../../dialogue")
+battle = NodePath("../../Battle")
 
 [node name="path" type="Node3D" parent="." unique_id=241069739]
 
@@ -776,6 +815,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.3, 0.3, -43.5)
 [node name="trees4" type="Node3D" parent="." unique_id=346489244]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 0, 0)
 
+[node name="large tree23" parent="trees4" unique_id=166874189 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -44.888096, 0.29987875, -42.221466)
+
+[node name="large tree24" parent="trees4" unique_id=713213322 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 41.810886, 0.3001229, -44.016953)
+
+[node name="nice tree26" parent="trees4" unique_id=2057753582 instance=ExtResource("11_dg77c")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 37.82449, 0.29987794, -44.827377)
+
+[node name="nice tree27" parent="trees4" unique_id=1094246933 instance=ExtResource("11_dg77c")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 44.895084, 0.3, 30.910933)
+
+[node name="large tree25" parent="trees4" unique_id=802546815 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 44.92754, 0.30000082, 39.423195)
+
+[node name="large tree26" parent="trees4" unique_id=257590732 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -45.2215, 0.30000082, -26.765543)
+
 [node name="large tree" parent="trees4" unique_id=1898120644 instance=ExtResource("10_efxa6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.100002, 0.3, 48.100002)
 
@@ -1014,6 +1071,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.500004, 0, -13.200001)
 [node name="fence corner2" parent="fences" unique_id=889078817 instance=ExtResource("15_2cqfq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.799999, 0, -7.7)
 
+[node name="deco" type="Node3D" parent="." unique_id=59476239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.892174, 0.29665685, 2.5909672)
+
+[node name="small_dead_tree" parent="deco" unique_id=128768758 instance=ExtResource("21_getpj")]
+
+[node name="decorated bench" parent="deco" unique_id=377344818 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.160145, -0.29653478, 0)
+
+[node name="large tree" parent="deco" unique_id=2047750032 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8772573, 0.00346604, -8.86446)
+
+[node name="nice tree" parent="deco" unique_id=499574277 instance=ExtResource("11_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4087105, 0.0034652352, 3.3723507)
+
+[node name="pumpkin" parent="deco" unique_id=1792910030 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.465465, -0.2931518, 0.5781174)
+
+[node name="pumpkin2" parent="deco" unique_id=1332309796 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.296084, -0.29327387, -5.781168)
+
+[node name="pumpkin3" parent="deco" unique_id=646172817 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.61549, -0.2931518, 0)
+
+[node name="pumpkin4" parent="deco" unique_id=932283408 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.47955, -0.29327387, -4.8176403)
+
+[node name="decorated bench2" parent="deco" unique_id=1794168 instance=ExtResource("13_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.413555, -0.29677892, 0.09635162)
+
+[node name="large tree2" parent="deco" unique_id=626304943 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.327335, 0.0033439696, 0.9635277)
+
+[node name="small_dead_tree2" parent="deco" unique_id=566912525 instance=ExtResource("21_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.313251, -0.00012207031, -7.2264624)
+
+[node name="small_dead_tree3" parent="deco" unique_id=1244645854 instance=ExtResource("21_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.113506, 0, -8.86446)
+
+[node name="pumpkin5" parent="deco" unique_id=1041166586 instance=ExtResource("11_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99217415, -0.29665685, -3.5909672)
+
+[node name="large tree3" parent="deco" unique_id=1632645586 instance=ExtResource("10_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.928406, 0.0032218993, 39.6305)
+
 [node name="dialogue" parent="." unique_id=80872787 groups=["dialogue"] instance=ExtResource("16_2cqfq")]
 visible = false
 dialogue = Array[String](["hey bud", "choose wisely", "or else..."])
@@ -1021,38 +1122,34 @@ dialogue = Array[String](["hey bud", "choose wisely", "or else..."])
 [node name="Battle" parent="." unique_id=1480042873 groups=["battle"] instance=ExtResource("17_yaehf")]
 visible = false
 
-[node name="small_dead_tree" parent="." unique_id=128768758 instance=ExtResource("21_getpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.892174, 0.29665685, 2.5909672)
+[node name="win" type="CanvasLayer" parent="." unique_id=876421142 node_paths=PackedStringArray("label")]
+visible = false
+script = ExtResource("29_seu75")
+dialogue = Array[String](["wow man", "you did that ", "you visited all the houses", "congrats bro ok bye"])
+label = NodePath("Panel/Label")
 
-[node name="decorated bench" parent="." unique_id=377344818 instance=ExtResource("13_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2679703, 0.00012207031, 2.5909672)
+[node name="Panel" type="Panel" parent="win" unique_id=82863369]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -122.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="large tree" parent="." unique_id=2047750032 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.014916, 0.3001229, -6.273493)
-
-[node name="nice tree" parent="." unique_id=499574277 instance=ExtResource("11_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.300884, 0.30012208, 5.963318)
-
-[node name="pumpkin" parent="." unique_id=1792910030 instance=ExtResource("11_82xsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.426709, 0.0035050418, 3.1690845)
-
-[node name="pumpkin2" parent="." unique_id=1332309796 instance=ExtResource("11_82xsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5960894, 0.0033829715, -3.1902008)
-
-[node name="pumpkin3" parent="." unique_id=646172817 instance=ExtResource("11_82xsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.723315, 0.0035050418, 2.5909672)
-
-[node name="pumpkin4" parent="." unique_id=932283408 instance=ExtResource("11_82xsv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.587376, 0.0033829715, -2.2266731)
-
-[node name="decorated bench2" parent="." unique_id=1794168 instance=ExtResource("13_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.52138, -0.00012207031, 2.6873188)
-
-[node name="large tree2" parent="." unique_id=626304943 instance=ExtResource("10_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.43516, 0.30000082, 3.5544949)
-
-[node name="small_dead_tree2" parent="." unique_id=566912525 instance=ExtResource("21_getpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.421077, 0.29653478, -4.635495)
-
-[node name="small_dead_tree3" parent="." unique_id=1244645854 instance=ExtResource("21_getpj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7786683, 0.29665685, -6.273493)
+[node name="Label" type="Label" parent="win/Panel" unique_id=793870983]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -105.0
+offset_right = -261.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("31_jq2sk")
+theme_override_font_sizes/font_size = 32
+text = "oh hi little dude!"
+horizontal_alignment = 1

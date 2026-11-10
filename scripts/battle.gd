@@ -18,6 +18,7 @@ func _ready() -> void:
 func start_battle() -> void:
 	current_player_health = State.current_health
 	current_enemy_health = enemy.health
+
 	
 	set_health($CandyContainer/ProgressBar, enemy.health, enemy.health) 
 	set_health($PlayerPanel/MarginContainer/PlayerData/ProgressBar, State.current_health, State.max_health) 
@@ -32,8 +33,9 @@ func start_battle() -> void:
 	$ActionsPanel.show()
 
 func set_health(progress_bar, health, max_health):
-	progress_bar.value = health
 	progress_bar.max_value = max_health
+	progress_bar.value = health
+	
 	progress_bar.get_node("Label").text = "HP:%d/%d" % [health, max_health]
 
 
@@ -64,15 +66,22 @@ func enemy_turn():
 		$AnimationPlayer.play("shake")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("%s dealth %d damage" % [enemy.name, enemy.damage])
+		display_text("%s dealt %d damage" % [enemy.name, enemy.damage])
 		await textbox_closed
 	$ActionsPanel.show()
 
 func _on_run_pressed() -> void:
-	display_text("got away, no candy for you :(")
+	display_text("well, heres a candy for the road dont worry :)")
 	await textbox_closed
 	await get_tree().create_timer(.5).timeout
 	hide()
+	
+	State.candy += 1
+	State.candy_collected.append(enemy.name)
+		
+	print(State.candy)
+	print(State.candy_collected)
+	
 	battle_left.emit()
 	
 	

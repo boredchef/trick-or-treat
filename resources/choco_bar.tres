@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://c3ug72a703nbf"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_lltsf"]
+[ext_resource type="Texture2D" uid="uid://com7shxfgqajq" path="res://textures/candy/choco_bar.png" id="2_lltsf"]
+
+[resource]
+script = ExtResource("1_lltsf")
+name = "choco bar"
+texture = ExtResource("2_lltsf")
+health = 50
+damage = 6

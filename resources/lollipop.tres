@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://c7kdbdoubxj5l"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_0f0he"]
+[ext_resource type="Texture2D" uid="uid://c3jpekfi2bxo4" path="res://textures/candy/lollipop.png" id="2_0f0he"]
+
+[resource]
+script = ExtResource("1_0f0he")
+name = "lollipop"
+texture = ExtResource("2_0f0he")
+damage = 10

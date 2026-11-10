@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://cglni7a6dirma"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_2gh3v"]
+[ext_resource type="Texture2D" uid="uid://hbjtue3kpt01" path="res://textures/candy/candy_1.png" id="2_2gh3v"]
+
+[resource]
+script = ExtResource("1_2gh3v")
+name = "candy"
+texture = ExtResource("2_2gh3v")
+health = 20
+damage = 8

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://mlv5jwofiu1e"]
+
+[ext_resource type="Script" uid="uid://byyxfxh144f22" path="res://scripts/base_enemy.gd" id="1_jx063"]
+[ext_resource type="Texture2D" uid="uid://cqlmk7rmpqeqs" path="res://textures/candy/gummy_worms.png" id="2_yovk7"]
+
+[resource]
+script = ExtResource("1_jx063")
+name = "gummy worms"
+texture = ExtResource("2_yovk7")
+health = 90
+damage = 7
